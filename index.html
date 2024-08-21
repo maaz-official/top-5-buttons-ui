@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Buttons</title>
+    <style>
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.animated-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    color: #fff;
+    background-color: #3498db;
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+/* Button hover animations */
+.animated-button:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+/* Button hover effects */
+#button1::before,
+#button2::before,
+#button3::before,
+#button4::before,
+#button5::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+/* Specific button hover animations */
+#button1:hover::before {
+    transform: scaleX(0);
+}
+
+#button2:hover::before {
+    transform: scaleY(0);
+}
+
+#button3:hover::before {
+    transform: scale(0);
+}
+
+#button4:hover::before {
+    transform: rotate(45deg) scale(0);
+}
+
+#button5:hover::before {
+    transform: skewX(20deg) scaleY(0);
+}
+
+/* Position content above the animation effect */
+.animated-button span {
+    position: relative;
+    z-index: 1;
+}
+
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button class="animated-button" id="button1">Button 1</button>
+        <button class="animated-button" id="button2">Button 2</button>
+        <button class="animated-button" id="button3">Button 3</button>
+        <button class="animated-button" id="button4">Button 4</button>
+        <button class="animated-button" id="button5">Button 5</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
